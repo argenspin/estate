@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<odoo>
+<record id="estate_property_action" model = "ir.actions.act_window">
+	<field name="name">Properties</field>
+	<field name="res_model">estate.property</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<record id="estate_property_type_action" model = "ir.actions.act_window">
+	<field name="name">Property Type</field>
+	<field name="res_model">estate.property.type</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<record id="estate_property_tag_action" model = "ir.actions.act_window">
+	<field name="name">Property Tag</field>
+	<field name="res_model">estate.property.tags</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<record id = "estate_property_view_tree" model="ir.ui.view">
+	<field name="name">estate.property.tree</field>
+	<field name="model">estate.property</field>
+	<field name="arch" type="xml">
+		<tree string="Channel">
+			<field name="name"/>
+			<field name="property_type"/>
+			<field name="description"/>
+			<field name="facades"/>
+			
+			<field name="expected_price"/>
+			<field name="bedrooms"/>
+			<field name="expected_price"/>
+			<field name="garage"/>
+			<field name="garden_orientation"/>
+			<field name="date_availability"/>
+			
+		</tree>
+	</field>
+</record>
+
+<record id="estate_property_view_form" model="ir.ui.view">
+	<field name="name">estate.property.form</field>
+	<field name="model">estate.property</field>
+	<field name="arch" type="xml">
+		<form string="Property">
+			<sheet>
+				<group>
+					<group>
+						<h1>
+						<field name="name" placeholder="Name of Property"/>
+						</h1>
+
+					</group>
+					<newline/>
+					<newline/>
+					<group><field widget="many2many_tags" name="property_tag" /> </group>
+					<newline/>
+					<group>
+						<field name="property_type"/>
+						<newline/>
+						<field name="postcode"/>
+						<newline/>
+						<field name="date_availability"/>
+					</group>
+					<group>
+						<field name="expected_price"/>
+						<newline/>
+						<field name="selling_price"/>
+					</group>
+					<notebook>
+						 <page string="Description">
+						 <group>
+						 <field name="description"/>
+						 <newline/>
+						 <field name="bedrooms"/>
+						 <newline/>
+						 <field name="living_area" string="Living Area(sqm)"/>
+						 <newline/>
+						 <field name="facades"/>
+						 <newline/>
+						 <field name="garage"/>
+						 <newline/>
+						 <field name="garden"/>
+						 <newline/>
+						 <field name="garden_orientation"/>
+						 </group>
+	
+						</page>
+						
+						<page string="Other info">
+						<group>
+						<field name="salesman"/>
+						<newline/>
+						<field name="buyer"/>
+						</group>
+						</page>
+
+						<page string="Offers">
+							<field name="offer_ids">
+								<tree>
+									<field name = "price"/>
+									<field name = "partner_id"/>
+								</tree>
+							</field>
+
+
+						
+						</page>
+
+					</notebook>
+				</group>
+			</sheet>
+		</form>
+	</field>
+</record>
+
+<record id = "estate_property_type_view_tree" model="ir.ui.view">
+	<field name="name">estate.property.type.tree</field>
+	<field name="model">estate.property.type</field>
+	<field name="arch" type="xml">
+		<tree string="Channel">
+			<field name="property_type"/>
+		</tree>
+	</field>
+</record>
+
+<record id = "estate_property_tags_view_tree" model="ir.ui.view">
+	<field name="name">estate.property.tags.tree</field>
+	<field name="model">estate.property.tags</field>
+	<field name="arch" type="xml">
+		<tree string="Channel">
+			<field name="property_tag"/>
+		</tree>
+	</field>
+</record>
+</odoo>
+
+
+
