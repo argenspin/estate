@@ -4,7 +4,7 @@
 	'depends':['base_setup'],
 	'description':'App to manage Properties' ,
 	'author':'Rizwaan',
-	'company':'Salras',
+	# 'company':'Salras',
 	'data':['security/ir.model.access.csv','views/estate_property_views.xml', 'views/estate_menus.xml']
 
 }
